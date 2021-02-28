@@ -30,6 +30,15 @@ public class Nutriente {
     private String nome;
     private double qtdSolo;
     private double ideal;
+    private double corrigido;
+
+    public double getCorrigido() {
+        return corrigido;
+    }
+
+    public void setCorrigido(double corrigido) {
+        this.corrigido = corrigido;
+    }
 
     public double getIdeal() {
         return ideal;

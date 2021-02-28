@@ -19,6 +19,7 @@ public class App {
     static Nutriente[] nutriente = new Nutriente[6];
 
     static private int texturaSolo = 0;
+    static private double teorFosforo = 0;
 
     public static void main(String args[]) {
         nutriente[0] = new Nutriente("Fósforo", 10.23);
@@ -37,14 +38,23 @@ public class App {
                 System.out.println("A quantidadade ideal de " + nutriente[i].getNome() + " é de: " + nutriente[i].getIdeal());
             }
         }
+        System.out.println("Digite a quantidade de teor de fósforo a atingir:");
+        teorFosforo = dado.nextDouble();
+        App.calcTeorFosforo(teorFosforo);
+        if(teorFosforo>0.01){
+            System.out.println("A quantidade de " +nutriente[0].getNome() + " ideal após as correções é de: " +nutriente[0]
+           .getCorrigido());
+        }
+        
+        
 
     }
 
-    public float teorFosforo(float teor) {
-        if (teor == 0) {
-            return 0;
+    public static void calcTeorFosforo(double teor) {
+        if (teor < 0.01) {
+            System.out.println("Não há valor de correção para o fósforo.");
         } else {
-            return teor;
+            nutriente[0].setCorrigido(teor);
         }
     }
 

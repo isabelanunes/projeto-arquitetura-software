@@ -29,13 +29,13 @@ public class Nutriente {
     
     private String nome;
     private double qtdSolo;
-    private float ideal;
+    private double ideal;
 
-    public float getIdeal() {
+    public double getIdeal() {
         return ideal;
     }
 
-    public void setIdeal(float ideal) {
+    public void setIdeal(double ideal) {
         this.ideal = ideal;
     }
 

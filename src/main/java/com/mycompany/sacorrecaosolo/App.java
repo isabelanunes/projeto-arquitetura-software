@@ -20,10 +20,11 @@ public class App {
 
     static private int texturaSolo = 0;
     static private double teorFosforo = 0;
+    static private double ctc = 0;
 
     public static void main(String args[]) {
         nutriente[0] = new Nutriente("Fósforo", 10.23);
-        nutriente[1] = new Nutriente("Potássio", 0.82);
+        nutriente[1] = new Nutriente("Potássio", 0.15);
         nutriente[2] = new Nutriente("Cálcio", 12.45);
         nutriente[3] = new Nutriente("Magnésio", 3.47);
         nutriente[4] = new Nutriente("Enxofre", 1.10);
@@ -41,12 +42,15 @@ public class App {
         System.out.println("Digite a quantidade de teor de fósforo a atingir:");
         teorFosforo = dado.nextDouble();
         App.calcTeorFosforo(teorFosforo);
-        if(teorFosforo>0.01){
-            System.out.println("A quantidade de " +nutriente[0].getNome() + " ideal após as correções é de: " +nutriente[0]
-           .getCorrigido());
+        if (teorFosforo > 0.01) {
+            System.out.println("A quantidade de " + nutriente[0].getNome() + " ideal após as correções é de: " + nutriente[0]
+                    .getCorrigido());
         }
-        
-        
+        System.out.println("Digite a quantidade da participação de potássio na CTC desejada:");
+        ctc = dado.nextDouble();
+        calcTeorPotassio(ctc);
+        System.out.println("A quantidade de " + nutriente[1].getNome() + " ideal após as correções é de: " + nutriente[1]
+                .getCorrigido());
 
     }
 
@@ -55,6 +59,19 @@ public class App {
             System.out.println("Não há valor de correção para o fósforo.");
         } else {
             nutriente[0].setCorrigido(teor);
+        }
+    }
+
+    public static void calcTeorPotassio(double ctc) {
+        if (nutriente[1].getQtdSolo() > 0.5) {
+            nutriente[1].setCorrigido(nutriente[1].getQtdSolo());
+        } else {
+            double valork = (nutriente[1].getQtdSolo() * ctc / 1.2) - nutriente[1].getQtdSolo();
+            if (valork < 0.01) {
+                nutriente[1].setCorrigido(nutriente[1].getQtdSolo());
+            } else {
+                nutriente[1].setCorrigido(nutriente[1].getQtdSolo() + valork);
+            }
         }
     }
 

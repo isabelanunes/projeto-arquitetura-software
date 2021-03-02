@@ -32,7 +32,7 @@ public class App {
         nutriente[4] = new Nutriente("Enxofre", 1.10);
         nutriente[5] = new Nutriente("Alumínio", 0);
         acidez = 5.35;
-        
+
         Scanner dado = new Scanner(System.in);
 
         System.out.println("Digite a textura do solo:");
@@ -55,6 +55,12 @@ public class App {
         calcTeorPotassio(ctc);
         System.out.println("A quantidade de " + nutriente[1].getNome() + " ideal após as correções é de: " + nutriente[1]
                 .getCorrigido());
+        
+        System.out.println("Digite a quantidade da participação de cálcio na CTC desejada:");
+        ctc = dado.nextDouble();
+        calcTeorCalcio(ctc);
+        System.out.println("A quantidade de " + nutriente[2].getNome() + " ideal após as correções é de: " + nutriente[2]
+                .getCorrigido());
 
     }
 
@@ -70,9 +76,9 @@ public class App {
         if (nutriente[1].getQtdSolo() > 0.5) {
             nutriente[1].setCorrigido(nutriente[1].getQtdSolo());
         } else {
-            ctcAtual = nutriente[1].getQtdSolo()/(nutriente[1].getQtdSolo()+nutriente[2].getQtdSolo()
-                    +nutriente[3].getQtdSolo() + acidez)*100;
-            
+            ctcAtual = nutriente[1].getQtdSolo() / (nutriente[1].getQtdSolo() + nutriente[2].getQtdSolo()
+                    + nutriente[3].getQtdSolo() + acidez) * 100;
+
             double valork = (nutriente[1].getQtdSolo() * ctc / ctcAtual) - nutriente[1].getQtdSolo();
             if (valork < 0.01) {
                 nutriente[1].setCorrigido(nutriente[1].getQtdSolo());
@@ -80,6 +86,62 @@ public class App {
                 nutriente[1].setCorrigido(nutriente[1].getQtdSolo() + valork);
             }
         }
+    }
+
+    public static void calcTeorCalcio(double ctc) {
+        Scanner dado = new Scanner(System.in);
+        int fonte = 0;
+        double valorFonteCalcio = 0;
+        double teorCao = 0;
+        double somaCalcio = 0;
+
+
+        nutriente[2].getQtdSolo();
+        
+        System.out.println("Digite a quantidade do teor de cálcio do corretivo: ");
+        teorCao = dado.nextDouble();
+        
+        if(teorCao < 0.01){
+            System.out.println("Digite qual a fonte do corretivo a utilizar para o cálcio (de 1 a 6)");
+        fonte = dado.nextInt();
+
+        switch (fonte) {
+            case 1:
+                valorFonteCalcio = 30.4*0.01783;
+                break;
+            case 2:
+                valorFonteCalcio = 56*0.01783;
+                break;
+            case 3:
+                valorFonteCalcio = 54*0.01783;
+                break;
+            case 4:
+                valorFonteCalcio = 29*0.01783;
+                break;
+            case 5:
+                valorFonteCalcio = 75.7*0.01783;
+                break;
+            case 6:
+                valorFonteCalcio = 35*0.01783;
+                break;
+            default:
+                 System.out.println("Valor a digitar deve ser de 1 a 6. Utilizando por padrão fonte 1.");
+                 valorFonteCalcio = 30.4*0.01783;
+
+            }
+        } else{
+            valorFonteCalcio = teorCao*0.01783;
+        }
+        
+        
+        somaCalcio = (nutriente[2].getQtdSolo()*ctc/(nutriente[2].getQtdSolo()/(nutriente[1].getQtdSolo() + nutriente[2].getQtdSolo()
+                    + nutriente[3].getQtdSolo() + acidez)*100)) - nutriente[2].getQtdSolo();
+        
+        somaCalcio = somaCalcio/valorFonteCalcio;
+        
+        nutriente[2].setCorrigido(nutriente[2].getQtdSolo() + (somaCalcio*valorFonteCalcio));
+
+        
     }
 
     public static void calcIdeal(int texturaSolo) {

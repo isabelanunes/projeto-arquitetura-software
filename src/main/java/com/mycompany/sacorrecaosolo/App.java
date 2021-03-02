@@ -58,8 +58,10 @@ public class App {
         
         System.out.println("Digite a quantidade da participação de cálcio na CTC desejada:");
         ctc = dado.nextDouble();
-        calcTeorCalcio(ctc);
+        calcTeorCalcioEMagnesio(ctc);
         System.out.println("A quantidade de " + nutriente[2].getNome() + " ideal após as correções é de: " + nutriente[2]
+                .getCorrigido());
+        System.out.println("A quantidade de " + nutriente[3].getNome() + " ideal após as correções é de: " + nutriente[3]
                 .getCorrigido());
 
     }
@@ -88,21 +90,16 @@ public class App {
         }
     }
 
-    public static void calcTeorCalcio(double ctc) {
+    public static void calcTeorCalcioEMagnesio(double ctc) {
         Scanner dado = new Scanner(System.in);
         int fonte = 0;
         double valorFonteCalcio = 0;
-        double teorCao = 0;
         double somaCalcio = 0;
-
-
-        nutriente[2].getQtdSolo();
+        double somaMagnesio = 0;
         
-        System.out.println("Digite a quantidade do teor de cálcio do corretivo: ");
-        teorCao = dado.nextDouble();
         
-        if(teorCao < 0.01){
-            System.out.println("Digite qual a fonte do corretivo a utilizar para o cálcio (de 1 a 6)");
+  
+        System.out.println("Digite qual a fonte do corretivo a utilizar para o cálcio (de 1 a 6)");
         fonte = dado.nextInt();
 
         switch (fonte) {
@@ -129,9 +126,7 @@ public class App {
                  valorFonteCalcio = 30.4*0.01783;
 
             }
-        } else{
-            valorFonteCalcio = teorCao*0.01783;
-        }
+        
         
         
         somaCalcio = (nutriente[2].getQtdSolo()*ctc/(nutriente[2].getQtdSolo()/(nutriente[1].getQtdSolo() + nutriente[2].getQtdSolo()
@@ -140,9 +135,29 @@ public class App {
         somaCalcio = somaCalcio/valorFonteCalcio;
         
         nutriente[2].setCorrigido(nutriente[2].getQtdSolo() + (somaCalcio*valorFonteCalcio));
+        
+        
+        
+        //Calculo do Magnesio
+        switch (fonte) {
+            case 1:
+                somaMagnesio = 18*0.0248*somaCalcio;
+                break;
+            case 2:
+                somaMagnesio = 5*0.0248*somaCalcio;
+                break;
+            case 6:
+                somaMagnesio = 10*0.0248*somaCalcio;
+                break;
+            default:
+                 somaMagnesio = 0;
 
+            }
+        
+        nutriente[3].setCorrigido(nutriente[3].getQtdSolo()+somaMagnesio);
         
     }
+    
 
     public static void calcIdeal(int texturaSolo) {
         if (texturaSolo == 1) {

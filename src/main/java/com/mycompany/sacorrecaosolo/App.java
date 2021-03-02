@@ -38,32 +38,33 @@ public class App {
         System.out.println("Digite a textura do solo:");
         texturaSolo = dado.nextInt();
         App.calcIdeal(texturaSolo);
+        
+        System.out.println("Digite a quantidade de teor de fósforo a atingir:");
+        teorFosforo = dado.nextDouble();
+        App.calcTeorFosforo(teorFosforo);
+      
+        System.out.println("Digite a quantidade da participação de potássio na CTC desejada:");
+        ctc = dado.nextDouble();
+        calcTeorPotassio(ctc);
+   
+        
+        System.out.println("Digite a quantidade da participação de cálcio na CTC desejada:");
+        ctc = dado.nextDouble();
+        calcTeorCalcioEMagnesio(ctc);
+        
         if (texturaSolo == 1 || texturaSolo == 2) {
             for (int i = 0; i < 6; i++) {
                 System.out.println("A quantidadade ideal de " + nutriente[i].getNome() + " é de: " + nutriente[i].getIdeal());
             }
         }
-        System.out.println("Digite a quantidade de teor de fósforo a atingir:");
-        teorFosforo = dado.nextDouble();
-        App.calcTeorFosforo(teorFosforo);
-        if (teorFosforo > 0.01) {
-            System.out.println("A quantidade de " + nutriente[0].getNome() + " ideal após as correções é de: " + nutriente[0]
-                    .getCorrigido());
+        
+        System.out.println("--------------------------------------------------------------------------");
+        
+        for(int i = 0; i<4 ;i++){
+            System.out.println("A quantidadade corrigida de " + nutriente[i].getNome() + " é de: " + nutriente[i].getCorrigido());
         }
-        System.out.println("Digite a quantidade da participação de potássio na CTC desejada:");
-        ctc = dado.nextDouble();
-        calcTeorPotassio(ctc);
-        System.out.println("A quantidade de " + nutriente[1].getNome() + " ideal após as correções é de: " + nutriente[1]
-                .getCorrigido());
-        
-        System.out.println("Digite a quantidade da participação de cálcio na CTC desejada:");
-        ctc = dado.nextDouble();
-        calcTeorCalcioEMagnesio(ctc);
-        System.out.println("A quantidade de " + nutriente[2].getNome() + " ideal após as correções é de: " + nutriente[2]
-                .getCorrigido());
-        System.out.println("A quantidade de " + nutriente[3].getNome() + " ideal após as correções é de: " + nutriente[3]
-                .getCorrigido());
-        
+        System.out.println("--------------------------------------------------------------------------");
+
         calcValoresCmol();
 
     }
@@ -165,7 +166,7 @@ public class App {
         double ctcCmol = sCmol + acidez;
         double vAtual = 100*sCmol/ctcCmol;
         
-        System.out.println("Scmol = " + sCmol+" ctcCmol: "+ctcCmol+ " vAtual = " +vAtual);
+        System.out.println("S cmol = " + sCmol+" ctcCmol = "+ctcCmol+ " V% Atual = " +vAtual);
     }
     
 

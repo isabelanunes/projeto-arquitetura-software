@@ -21,14 +21,18 @@ public class App {
     static private int texturaSolo = 0;
     static private double teorFosforo = 0;
     static private double ctc = 0;
+    static private double ctcAtual = 0;
+    static private double acidez = 0;
 
     public static void main(String args[]) {
         nutriente[0] = new Nutriente("Fósforo", 10.23);
         nutriente[1] = new Nutriente("Potássio", 0.15);
-        nutriente[2] = new Nutriente("Cálcio", 12.45);
-        nutriente[3] = new Nutriente("Magnésio", 3.47);
+        nutriente[2] = new Nutriente("Cálcio", 5.76);
+        nutriente[3] = new Nutriente("Magnésio", 1.63);
         nutriente[4] = new Nutriente("Enxofre", 1.10);
         nutriente[5] = new Nutriente("Alumínio", 0);
+        acidez = 5.35;
+        
         Scanner dado = new Scanner(System.in);
 
         System.out.println("Digite a textura do solo:");
@@ -66,7 +70,10 @@ public class App {
         if (nutriente[1].getQtdSolo() > 0.5) {
             nutriente[1].setCorrigido(nutriente[1].getQtdSolo());
         } else {
-            double valork = (nutriente[1].getQtdSolo() * ctc / 1.2) - nutriente[1].getQtdSolo();
+            ctcAtual = nutriente[1].getQtdSolo()/(nutriente[1].getQtdSolo()+nutriente[2].getQtdSolo()
+                    +nutriente[3].getQtdSolo() + acidez)*100;
+            
+            double valork = (nutriente[1].getQtdSolo() * ctc / ctcAtual) - nutriente[1].getQtdSolo();
             if (valork < 0.01) {
                 nutriente[1].setCorrigido(nutriente[1].getQtdSolo());
             } else {

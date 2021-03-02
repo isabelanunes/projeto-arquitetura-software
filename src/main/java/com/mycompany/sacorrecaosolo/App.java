@@ -63,6 +63,8 @@ public class App {
                 .getCorrigido());
         System.out.println("A quantidade de " + nutriente[3].getNome() + " ideal após as correções é de: " + nutriente[3]
                 .getCorrigido());
+        
+        calcValoresCmol();
 
     }
 
@@ -156,6 +158,14 @@ public class App {
         
         nutriente[3].setCorrigido(nutriente[3].getQtdSolo()+somaMagnesio);
         
+    }
+    
+    public static void calcValoresCmol(){
+        double sCmol = nutriente[1].getQtdSolo()+nutriente[2].getQtdSolo()+nutriente[3].getQtdSolo();
+        double ctcCmol = sCmol + acidez;
+        double vAtual = 100*sCmol/ctcCmol;
+        
+        System.out.println("Scmol = " + sCmol+" ctcCmol: "+ctcCmol+ " vAtual = " +vAtual);
     }
     
 

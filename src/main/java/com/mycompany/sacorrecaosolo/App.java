@@ -25,11 +25,11 @@ public class App {
     static private double acidez = 0;
 
     public static void main(String args[]) {
-        nutriente[0] = new Nutriente("Fósforo", 10.23);
+        nutriente[0] = new Nutriente("Fósforo", 8.59);
         nutriente[1] = new Nutriente("Potássio", 0.15);
         nutriente[2] = new Nutriente("Cálcio", 5.76);
         nutriente[3] = new Nutriente("Magnésio", 1.63);
-        nutriente[4] = new Nutriente("Enxofre", 1.10);
+        nutriente[4] = new Nutriente("Enxofre", 3.67);
         nutriente[5] = new Nutriente("Alumínio", 0);
         acidez = 5.35;
 
@@ -95,7 +95,7 @@ public class App {
 
     public static void calcTeorCalcioEMagnesio(double ctc) {
         Scanner dado = new Scanner(System.in);
-        int fonte = 0;
+        int fonteCalcio = 0;
         double valorFonteCalcio = 0;
         double somaCalcio = 0;
         double somaMagnesio = 0;
@@ -103,9 +103,9 @@ public class App {
         
   
         System.out.println("Digite qual a fonte do corretivo a utilizar para o cálcio (de 1 a 6)");
-        fonte = dado.nextInt();
+        fonteCalcio = dado.nextInt();
 
-        switch (fonte) {
+        switch (fonteCalcio) {
             case 1:
                 valorFonteCalcio = 30.4*0.01783;
                 break;
@@ -142,7 +142,7 @@ public class App {
         
         
         //Calculo do Magnesio
-        switch (fonte) {
+        switch (fonteCalcio) {
             case 1:
                 somaMagnesio = 18*0.0248*somaCalcio;
                 break;
@@ -156,6 +156,7 @@ public class App {
                  somaMagnesio = 0;
 
             }
+        
         
         nutriente[3].setCorrigido(nutriente[3].getQtdSolo()+somaMagnesio);
         

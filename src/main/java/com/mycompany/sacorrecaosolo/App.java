@@ -16,6 +16,10 @@ public class App {
     /**
      * @param args the command line arguments
      */
+    
+    //(Quantidade no solo, textura do solo)
+    static Fosforo fosforo = new Fosforo(15.00,2);
+    
     static Nutriente[] nutriente = new Nutriente[6];
 
     static private int texturaSolo = 0;
@@ -25,6 +29,7 @@ public class App {
     static private double acidez = 0;
 
     public static void main(String args[]) {
+        /*
         nutriente[0] = new Nutriente("Fósforo", 8.59);
         nutriente[1] = new Nutriente("Potássio", 0.15);
         nutriente[2] = new Nutriente("Cálcio", 5.76);
@@ -66,6 +71,11 @@ public class App {
         System.out.println("--------------------------------------------------------------------------");
 
         calcValoresCmol();
+        */
+        
+        fosforo.calcTeorFosforo();
+        System.out.println(fosforo.getIdeal());
+        System.out.println(fosforo.getCorrigido());
 
     }
 

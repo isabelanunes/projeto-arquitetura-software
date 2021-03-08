@@ -5,8 +5,6 @@
  */
 package com.mycompany.sacorrecaosolo;
 
-import java.util.Scanner;
-
 /**
  *
  * @author jvitorgf
@@ -16,188 +14,49 @@ public class App {
     /**
      * @param args the command line arguments
      */
+    static final private int TEXTURA_SOLO = 1;
     
     //(Quantidade no solo, textura do solo)
-    static Fosforo fosforo = new Fosforo(15.00,2);
     
-    static Nutriente[] nutriente = new Nutriente[6];
-
-    static private int texturaSolo = 0;
-    static private double teorFosforo = 0;
-    static private double ctc = 0;
-    static private double ctcAtual = 0;
-    static private double acidez = 0;
+    static Fosforo fosforo = new Fosforo(8.59,TEXTURA_SOLO);
+    static Potassio potassio = new Potassio(0.15,TEXTURA_SOLO);
+    static Calcio calcio = new Calcio(5.76,TEXTURA_SOLO);
+    static Magnesio magnesio = new Magnesio(1.63,TEXTURA_SOLO);
+    static Enxofre enxofre = new Enxofre(1.63,TEXTURA_SOLO);
+    static Aluminio aluminio = new Aluminio(1.63);
+    static Acidez acidez = new Acidez(5.35);
+    
 
     public static void main(String args[]) {
-        /*
-        nutriente[0] = new Nutriente("Fósforo", 8.59);
-        nutriente[1] = new Nutriente("Potássio", 0.15);
-        nutriente[2] = new Nutriente("Cálcio", 5.76);
-        nutriente[3] = new Nutriente("Magnésio", 1.63);
-        nutriente[4] = new Nutriente("Enxofre", 3.67);
-        nutriente[5] = new Nutriente("Alumínio", 0);
-        acidez = 5.35;
-
-        Scanner dado = new Scanner(System.in);
-
-        System.out.println("Digite a textura do solo:");
-        texturaSolo = dado.nextInt();
-        App.calcIdeal(texturaSolo);
-        
-        System.out.println("Digite a quantidade de teor de fósforo a atingir:");
-        teorFosforo = dado.nextDouble();
-        App.calcTeorFosforo(teorFosforo);
-      
-        System.out.println("Digite a quantidade da participação de potássio na CTC desejada:");
-        ctc = dado.nextDouble();
-        calcTeorPotassio(ctc);
-   
-        
-        System.out.println("Digite a quantidade da participação de cálcio na CTC desejada:");
-        ctc = dado.nextDouble();
-        calcTeorCalcioEMagnesio(ctc);
-        
-        if (texturaSolo == 1 || texturaSolo == 2) {
-            for (int i = 0; i < 6; i++) {
-                System.out.println("A quantidadade ideal de " + nutriente[i].getNome() + " é de: " + nutriente[i].getIdeal());
-            }
-        }
-        
-        System.out.println("--------------------------------------------------------------------------");
-        
-        for(int i = 0; i<4 ;i++){
-            System.out.println("A quantidadade corrigida de " + nutriente[i].getNome() + " é de: " + nutriente[i].getCorrigido());
-        }
-        System.out.println("--------------------------------------------------------------------------");
-
-        calcValoresCmol();
-        */
-        
+               
         fosforo.calcTeorFosforo();
-        System.out.println(fosforo.getIdeal());
-        System.out.println(fosforo.getCorrigido());
+        potassio.calcTeorPotassio();
+        calcio.calcTeorCalcio();
+        magnesio.calcTeorMagnesio();
+        
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println("A quantidade ideal de fósforo é de: " +fosforo.getIdeal());
+        System.out.println("A quantidade ideal de potássio é de: " +potassio.getIdeal());
+        System.out.println("A quantidade ideal de cálcio é de: " +calcio.getIdeal());
+        System.out.println("A quantidade ideal de magnésio é de: " +magnesio.getIdeal());
+        System.out.println("A quantidade ideal de enxofre é de: " +enxofre.getIdeal());
+        System.out.println("A quantidade ideal de alumínio é de: " +aluminio.getIdeal());
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println("A quantidade corrigida de fósforo é de: " +fosforo.getCorrigido());
+        System.out.println("A quantidade corrigida de potássio é de: " +potassio.getCorrigido());
+        System.out.println("A quantidade corrigida de cálcio é de: " +calcio.getCorrigido());
+        System.out.println("A quantidade corrigida de magnésio é de: " +magnesio.getCorrigido());
+        System.out.println("------------------------------------------------------------------------");
+        calcValoresCmol();
 
-    }
-
-    public static void calcTeorFosforo(double teor) {
-        if (teor < 0.01) {
-            System.out.println("Não há valor de correção para o fósforo.");
-        } else {
-            nutriente[0].setCorrigido(teor);
-        }
-    }
-
-    public static void calcTeorPotassio(double ctc) {
-        if (nutriente[1].getQtdSolo() > 0.5) {
-            nutriente[1].setCorrigido(nutriente[1].getQtdSolo());
-        } else {
-            ctcAtual = nutriente[1].getQtdSolo() / (nutriente[1].getQtdSolo() + nutriente[2].getQtdSolo()
-                    + nutriente[3].getQtdSolo() + acidez) * 100;
-
-            double valork = (nutriente[1].getQtdSolo() * ctc / ctcAtual) - nutriente[1].getQtdSolo();
-            if (valork < 0.01) {
-                nutriente[1].setCorrigido(nutriente[1].getQtdSolo());
-            } else {
-                nutriente[1].setCorrigido(nutriente[1].getQtdSolo() + valork);
-            }
-        }
-    }
-
-    public static void calcTeorCalcioEMagnesio(double ctc) {
-        Scanner dado = new Scanner(System.in);
-        int fonteCalcio = 0;
-        double valorFonteCalcio = 0;
-        double somaCalcio = 0;
-        double somaMagnesio = 0;
-        
-        
-  
-        System.out.println("Digite qual a fonte do corretivo a utilizar para o cálcio (de 1 a 6)");
-        fonteCalcio = dado.nextInt();
-
-        switch (fonteCalcio) {
-            case 1:
-                valorFonteCalcio = 30.4*0.01783;
-                break;
-            case 2:
-                valorFonteCalcio = 56*0.01783;
-                break;
-            case 3:
-                valorFonteCalcio = 54*0.01783;
-                break;
-            case 4:
-                valorFonteCalcio = 29*0.01783;
-                break;
-            case 5:
-                valorFonteCalcio = 75.7*0.01783;
-                break;
-            case 6:
-                valorFonteCalcio = 35*0.01783;
-                break;
-            default:
-                 System.out.println("Valor a digitar deve ser de 1 a 6. Utilizando por padrão fonte 1.");
-                 valorFonteCalcio = 30.4*0.01783;
-
-            }
-        
-        
-        
-        somaCalcio = (nutriente[2].getQtdSolo()*ctc/(nutriente[2].getQtdSolo()/(nutriente[1].getQtdSolo() + nutriente[2].getQtdSolo()
-                    + nutriente[3].getQtdSolo() + acidez)*100)) - nutriente[2].getQtdSolo();
-        
-        somaCalcio = somaCalcio/valorFonteCalcio;
-        
-        nutriente[2].setCorrigido(nutriente[2].getQtdSolo() + (somaCalcio*valorFonteCalcio));
-        
-        
-        
-        //Calculo do Magnesio
-        switch (fonteCalcio) {
-            case 1:
-                somaMagnesio = 18*0.0248*somaCalcio;
-                break;
-            case 2:
-                somaMagnesio = 5*0.0248*somaCalcio;
-                break;
-            case 6:
-                somaMagnesio = 10*0.0248*somaCalcio;
-                break;
-            default:
-                 somaMagnesio = 0;
-
-            }
-        
-        
-        nutriente[3].setCorrigido(nutriente[3].getQtdSolo()+somaMagnesio);
-        
     }
     
     public static void calcValoresCmol(){
-        double sCmol = nutriente[1].getQtdSolo()+nutriente[2].getQtdSolo()+nutriente[3].getQtdSolo();
-        double ctcCmol = sCmol + acidez;
+        double sCmol = potassio.getQtdSolo()+calcio.getQtdSolo()+magnesio.getQtdSolo();
+        double ctcCmol = sCmol + acidez.getQtdSolo();
         double vAtual = 100*sCmol/ctcCmol;
         
         System.out.println("S cmol = " + sCmol+" ctcCmol = "+ctcCmol+ " V% Atual = " +vAtual);
     }
     
-
-    public static void calcIdeal(int texturaSolo) {
-        if (texturaSolo == 1) {
-            nutriente[0].setIdeal(9);
-            nutriente[1].setIdeal(0.35);
-            nutriente[2].setIdeal(6);
-            nutriente[3].setIdeal(1.5);
-            nutriente[4].setIdeal(9);
-            nutriente[5].setIdeal(0);
-        } else if (texturaSolo == 2) {
-            nutriente[0].setIdeal(12);
-            nutriente[1].setIdeal(0.25);
-            nutriente[2].setIdeal(4.0);
-            nutriente[3].setIdeal(1.0);
-            nutriente[4].setIdeal(6.0);
-            nutriente[5].setIdeal(0.0);
-        } else {
-            System.out.println("A textura do solo deve ser 1 ou 2.");
-        }
-    }
 }

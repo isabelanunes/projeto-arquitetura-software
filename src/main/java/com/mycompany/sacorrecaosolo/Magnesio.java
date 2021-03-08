@@ -5,26 +5,24 @@
  */
 package com.mycompany.sacorrecaosolo;
 
-import java.util.Scanner;
-
 /**
  *
  * @author jvitorgf
  */
-public class Fosforo {
+public class Magnesio {
 
     /**
      * @param args the command line arguments
      */
-    
-    private final double ideal1 = 9.0;
-    private final double ideal2 = 12.0;
-    private double ideal;
     private double qtdSolo;
+    private final double ideal1 = 1.5;
+    private final double ideal2 = 1.0;
+    private double ideal;
     private double corrigido;
-    private double teorFosforo;
-
-    public Fosforo(double qtdSolo, int textura) {
+    
+    
+    
+    public Magnesio(double qtdSolo, int textura) {
         this.qtdSolo = qtdSolo;
         
         switch(textura){
@@ -34,24 +32,15 @@ public class Fosforo {
             case 2:
                 this.ideal = ideal2;
                 break;
-
         }
     }
     
     
-    public void calcTeorFosforo() {
-        Scanner dado = new Scanner(System.in);
-        
-        System.out.println("Digite a quantidade de teor de fósforo a atingir: ");
-        teorFosforo = dado.nextDouble();
-
-        if (teorFosforo < 0.01) {
-            System.out.println("Não há valor de correção para o fósforo.");
-        } else {
-            setCorrigido(teorFosforo);
-        }
+    
+    public double getQtdSolo() {
+        return qtdSolo;
     }
-
+    
     public void setCorrigido(double corrigido) {
         this.corrigido = corrigido;
     }
@@ -64,6 +53,28 @@ public class Fosforo {
         return corrigido;
     }
     
+    public void calcTeorMagnesio() {
+        
+        double somaMagnesio;
+      
+         switch (App.calcio.getFonteCalcio()) {
+            case 1:
+                somaMagnesio = 18*0.0248*App.calcio.getSomaCalcio();
+                break;
+            case 2:
+                somaMagnesio = 5*0.0248*App.calcio.getSomaCalcio();
+                break;
+            case 6:
+                somaMagnesio = 10*0.0248*App.calcio.getSomaCalcio();
+                break;
+            default:
+                 somaMagnesio = 0;
+
+            }
+        
+        
+        setCorrigido(qtdSolo+somaMagnesio);
+    }
     
     
 }

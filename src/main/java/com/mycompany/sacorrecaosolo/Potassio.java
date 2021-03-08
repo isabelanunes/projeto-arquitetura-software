@@ -11,20 +11,21 @@ import java.util.Scanner;
  *
  * @author jvitorgf
  */
-public class Fosforo {
+public class Potassio {
 
     /**
      * @param args the command line arguments
      */
     
-    private final double ideal1 = 9.0;
-    private final double ideal2 = 12.0;
+    private final double ideal1 = 0.35;
+    private final double ideal2 = 0.25;
     private double ideal;
     private double qtdSolo;
     private double corrigido;
-    private double teorFosforo;
-
-    public Fosforo(double qtdSolo, int textura) {
+    private double ctcAtual;
+    private double ctcDesejada;
+    
+    public Potassio(double qtdSolo, int textura) {
         this.qtdSolo = qtdSolo;
         
         switch(textura){
@@ -34,24 +35,33 @@ public class Fosforo {
             case 2:
                 this.ideal = ideal2;
                 break;
-
         }
+       
     }
     
-    
-    public void calcTeorFosforo() {
+    public void calcTeorPotassio() {
+        
         Scanner dado = new Scanner(System.in);
         
-        System.out.println("Digite a quantidade de teor de fósforo a atingir: ");
-        teorFosforo = dado.nextDouble();
-
-        if (teorFosforo < 0.01) {
-            System.out.println("Não há valor de correção para o fósforo.");
+        System.out.println("Digite a quantidade da participação de potássio na CTC desejada:");
+        ctcDesejada = dado.nextDouble();
+        
+        
+        if (qtdSolo > 0.5) {
+            setCorrigido(qtdSolo);
         } else {
-            setCorrigido(teorFosforo);
+            ctcAtual = qtdSolo / (qtdSolo + App.calcio.getQtdSolo()
+                    + App.magnesio.getQtdSolo() + App.acidez.getQtdSolo()) * 100;
+
+            double valork = (qtdSolo * ctcDesejada / ctcAtual) - qtdSolo;
+            if (valork < 0.01) {
+                setCorrigido(qtdSolo);
+            } else {
+                setCorrigido(qtdSolo + valork);
+            }
         }
     }
-
+    
     public void setCorrigido(double corrigido) {
         this.corrigido = corrigido;
     }
@@ -63,7 +73,10 @@ public class Fosforo {
     public double getCorrigido() {
         return corrigido;
     }
-    
+
+    public double getQtdSolo() {
+        return qtdSolo;
+    }
     
     
 }

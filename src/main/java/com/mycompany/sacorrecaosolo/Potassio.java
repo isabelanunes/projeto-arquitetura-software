@@ -24,6 +24,8 @@ public class Potassio {
     private double corrigido;
     private double ctcAtual;
     private double ctcDesejada;
+    private double valork;
+    private int fontePotassio;
     
     public Potassio(double qtdSolo, int textura) {
         this.qtdSolo = qtdSolo;
@@ -53,13 +55,29 @@ public class Potassio {
             ctcAtual = qtdSolo / (qtdSolo + App.calcio.getQtdSolo()
                     + App.magnesio.getQtdSolo() + App.acidez.getQtdSolo()) * 100;
 
-            double valork = (qtdSolo * ctcDesejada / ctcAtual) - qtdSolo;
+            valork = (qtdSolo * ctcDesejada / ctcAtual) - qtdSolo;
             if (valork < 0.01) {
                 setCorrigido(qtdSolo);
             } else {
                 setCorrigido(qtdSolo + valork);
             }
         }
+        
+       System.out.println("Digite qual a fonte de potássio a utilizar: ");
+       fontePotassio = dado.nextInt();
+       switch (fontePotassio){
+           case 1:
+               break;
+           case 2:
+               break;
+           case 3:
+               break;
+           default:
+           System.out.println("A fonte de potássio deve ser de 1 a 3. Valor a ser "
+                   + "utilizado = 1");
+           fontePotassio = 1;
+       }
+       
     }
     
     public void setCorrigido(double corrigido) {
@@ -77,6 +95,18 @@ public class Potassio {
     public double getQtdSolo() {
         return qtdSolo;
     }
+
+    public double getValork() {
+        return valork;
+    }
+
+    public int getFontePotassio() {
+        return fontePotassio;
+    }
+    
+    
+    
+    
     
     
 }

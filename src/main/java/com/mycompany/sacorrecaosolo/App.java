@@ -22,8 +22,8 @@ public class App {
     static Potassio potassio = new Potassio(0.15,TEXTURA_SOLO);
     static Calcio calcio = new Calcio(5.76,TEXTURA_SOLO);
     static Magnesio magnesio = new Magnesio(1.63,TEXTURA_SOLO);
-    static Enxofre enxofre = new Enxofre(1.63,TEXTURA_SOLO);
-    static Aluminio aluminio = new Aluminio(1.63);
+    static Enxofre enxofre = new Enxofre(3.67,TEXTURA_SOLO);
+    static Aluminio aluminio = new Aluminio(0);
     static Acidez acidez = new Acidez(5.35);
     
 

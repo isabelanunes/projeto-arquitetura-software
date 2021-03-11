@@ -23,6 +23,7 @@ public class Fosforo {
     private double qtdSolo;
     private double corrigido;
     private double teorFosforo;
+    private int fonteFosforo;
 
     public Fosforo(double qtdSolo, int textura) {
         this.qtdSolo = qtdSolo;
@@ -50,6 +51,39 @@ public class Fosforo {
         } else {
             setCorrigido(teorFosforo);
         }
+        
+        System.out.println("Digite a qual a fonte de fósforo a utilizar (de 1 a 12): ");
+        fonteFosforo = dado.nextInt();
+        switch (fonteFosforo){
+           case 1:
+               break;
+           case 2:
+               break;
+           case 3:
+               break;
+           case 4:
+               break;
+           case 5:
+               break;
+           case 6:
+               break;
+           case 7:
+               break;
+           case 8:
+               break;
+           case 9:
+               break;
+           case 10:
+               break;
+           case 11:
+               break;
+           case 12:
+               break;
+           default:
+           System.out.println("A fonte de fósforo deve ser de 1 a 12. Valor a ser "
+                   + "utilizado = 1");
+           fonteFosforo = 1;
+       }
     }
 
     public void setCorrigido(double corrigido) {
@@ -63,6 +97,12 @@ public class Fosforo {
     public double getCorrigido() {
         return corrigido;
     }
+
+    public int getFonteFosforo() {
+        return fonteFosforo;
+    }
+
+   
     
     
     

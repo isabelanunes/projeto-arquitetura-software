@@ -63,4 +63,18 @@ public class CorrecaoSolo {
         return 0;
 
     }
+    public double correcaoPotassio(double qtdSoloPotassio,double qtdSoloCalcio ,double qtdSoloMagnesio,double qtdSoloHmaisL,int fonte,double ctcDesejada){
+        
+        switch(fonte){
+            case 1:
+                return (double) Math.round(((qtdSoloPotassio*ctcDesejada/( qtdSoloPotassio/(qtdSoloPotassio+qtdSoloCalcio+qtdSoloMagnesio+qtdSoloHmaisL)*100)-qtdSoloPotassio)*39.1*10*2*1.2*100/85*100/58)*100)/100;
+            case 2:
+                return (double) Math.round(((qtdSoloPotassio*ctcDesejada/( qtdSoloPotassio/(qtdSoloPotassio+qtdSoloCalcio+qtdSoloMagnesio+qtdSoloHmaisL)*100)-qtdSoloPotassio)*39.1*10*2*1.2*100/85*100/52)*100)/100;
+            case 3:
+                return (double) Math.round(((qtdSoloPotassio*ctcDesejada/( qtdSoloPotassio/(qtdSoloPotassio+qtdSoloCalcio+qtdSoloMagnesio+qtdSoloHmaisL)*100)-qtdSoloPotassio)*39.1*10*2*1.2*100/85*100/22)*100)/100;
+        }
+        
+        return 0;
+
+    }
 }

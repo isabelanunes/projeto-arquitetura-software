@@ -26,6 +26,18 @@ public class TesteCorrecaoSolo {
     public void testaCorrecaoFosforoDaoui(){
         assertEquals(131.06,ca.correcaoFosforo(8.59, 8, 15, 70));
     }
+    @Test
+    public void testaCorrecaoPotassioCloreto(){
+        assertEquals(450.55,ca.correcaoPotassio(0.15, 5.76, 1.63, 5.35, 1, 3));
+    }
+    @Test
+    public void testaCorrecaoPotassioSulfatoDePotassio(){
+        assertEquals(502.53,ca.correcaoPotassio(0.15, 5.76, 1.63, 5.35, 2, 3));
+    }
+    @Test
+    public void testaCorrecaoPotassioSulfatodePotassioEMagnesio(){
+        assertEquals(1187.8,ca.correcaoPotassio(0.15, 5.76, 1.63, 5.35, 3, 3));
+    }
 }
     
 

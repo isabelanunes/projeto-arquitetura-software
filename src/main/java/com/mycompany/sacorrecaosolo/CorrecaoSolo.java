@@ -29,7 +29,7 @@ public class CorrecaoSolo {
         return null;
     }
     
-    public double correcaoFosforo(double qtdSoloFosforo,int fonte,double teor, double eficiencia){
+    public double calculaCorrecaoFosforoQtdAplicar(double qtdSoloFosforo,int fonte,double teor, double eficiencia){
         
         double qtdAplicarAux = ((((teor - qtdSoloFosforo)*2)*2.29)*100/eficiencia)*100;
         
@@ -64,7 +64,50 @@ public class CorrecaoSolo {
         return 0;
 
     }
-    public double correcaoPotassio(double qtdSoloPotassio,double qtdSoloCalcio ,double qtdSoloMagnesio,double qtdSoloHmaisL,int fonte,double ctcDesejada){
+    
+    public String getNomeFonteFosforo(int fonte){
+        switch(fonte){
+            case 1:
+                return "Superfosfato Simples";
+            case 2:
+                return "Superfosfato Triplo";
+            case 3:
+                return "MAP";
+            case 4:
+                return "DAP";
+            case 5:
+                return "Termofosfato Yoorin";
+            case 6:
+                return "Fosfato Arad";
+            case 7:
+                return "Fosfato Gafsa";
+            case 8:
+                return "Fosfato Daoui";
+            case 9:
+                return "Fosfato Patos Minas";
+            case 10:
+                return "Escória de Thomas";
+            case 11:
+                return "Ácido Fosfórico";
+            case 12:
+                return "Multifosfato Magnesiano";
+             }
+        return null;
+    }
+    
+    public double calcFosforoCorrecaoAdicional1(){
+        return 0;
+    }
+    
+    public double calcFosforoCorrecaoAdicional2(){
+        return 0;
+    }
+    
+    public double calcCorrecaoFosforoCusto(){   
+        return 0;
+    }
+    
+    public double calculaCorrecaoPotassioQtdAplicar(double qtdSoloPotassio,double qtdSoloCalcio ,double qtdSoloMagnesio,double qtdSoloHmaisL,int fonte,double ctcDesejada){
         
         double qtdAplicarAux = (qtdSoloPotassio*ctcDesejada/( qtdSoloPotassio/(qtdSoloPotassio+qtdSoloCalcio+qtdSoloMagnesio+qtdSoloHmaisL)*100)-qtdSoloPotassio)*39.1*10*2*1.2*100/85*100;
         

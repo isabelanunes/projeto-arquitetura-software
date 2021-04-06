@@ -18,6 +18,17 @@ public class TesteCorrecaoSolo {
     public void testaCorrecaoFosforoSuperfosfatoSimples(){
         assertEquals(233,ca.correcaoFosforo(8.59, 1, 15, 70));
     }
+    
+    @Test
+    public void testaCorrecaoFosforoYoorin(){
+        assertEquals(233,ca.correcaoFosforo(8.59, 5, 15, 70));
+    }
+    
+    @Test
+    public void testaCorrecaoFosforoMultifosfatoMagnesiano(){
+        assertEquals(233,ca.correcaoFosforo(8.59, 12, 15, 70));
+    }
+    
     @Test
     public void testaCorrecaoFosforoDAP(){
         assertEquals(93.2,ca.correcaoFosforo(8.59, 4, 15, 70));

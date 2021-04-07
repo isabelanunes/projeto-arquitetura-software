@@ -23,8 +23,8 @@ public class TesteCorrecaoSolo {
         assertEquals("Superfosfato Simples", ca.getNomeFonteFosforo(1));
         assertEquals(23.3, ca.calcFosforoCorrecaoAdicional1(8.59, 1, 15, 70));
         assertEquals(65.2, ca.calcFosforoCorrecaoAdicional2(8.59, 1, 15, 70));
-        assertEquals("Enxofre", ca.getNomeCorrecaoAdicional1(1));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(1));
+        assertEquals("Enxofre", ca.getNomeFosforoCorrecaoAdicional1(1));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(1));
         assertEquals(1.29, ca.calcCorrecaoFosforoCusto(8.59, 1, 15, 70, 5.53));
 
     }
@@ -34,7 +34,7 @@ public class TesteCorrecaoSolo {
         assertEquals(102.29, ca.calculaCorrecaoFosforoQtdAplicar(8.59, 2, 15, 70));
         assertEquals("Superfosfato Triplo", ca.getNomeFonteFosforo(2));
         assertEquals(20.5, ca.calcFosforoCorrecaoAdicional2(8.59, 2, 15, 70));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(2));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(2));
         assertEquals(0.57, ca.calcCorrecaoFosforoCusto(8.59, 2, 15, 70, 5.53));
 
     }
@@ -44,7 +44,7 @@ public class TesteCorrecaoSolo {
         assertEquals(87.37, ca.calculaCorrecaoFosforoQtdAplicar(8.59, 3, 15, 70));
         assertEquals("MAP", ca.getNomeFonteFosforo(3));
         assertEquals(7.9, ca.calcFosforoCorrecaoAdicional2(8.59, 3, 15, 70));
-        assertEquals("Nitrogênio", ca.getNomeCorrecaoAdicional2(3));
+        assertEquals("Nitrogênio", ca.getNomeFosforoCorrecaoAdicional2(3));
         assertEquals(0.48, ca.calcCorrecaoFosforoCusto(8.59, 3, 15, 70, 5.53));
 
     }
@@ -54,7 +54,7 @@ public class TesteCorrecaoSolo {
         assertEquals(93.2, ca.calculaCorrecaoFosforoQtdAplicar(8.59, 4, 15, 70));
         assertEquals("DAP", ca.getNomeFonteFosforo(4));
         assertEquals(14.9, ca.calcFosforoCorrecaoAdicional2(8.59, 4, 15, 70));
-        assertEquals("Nitrogênio", ca.getNomeCorrecaoAdicional2(4));
+        assertEquals("Nitrogênio", ca.getNomeFosforoCorrecaoAdicional2(4));
         assertEquals(0.52, ca.calcCorrecaoFosforoCusto(8.59, 4, 15, 70, 5.53));
 
     }
@@ -65,8 +65,8 @@ public class TesteCorrecaoSolo {
         assertEquals("Termofosfato Yoorin", ca.getNomeFonteFosforo(5));
         assertEquals(34.9, ca.calcFosforoCorrecaoAdicional1(8.59, 5, 15, 70));
         assertEquals(65.2, ca.calcFosforoCorrecaoAdicional2(8.59, 5, 15, 70));
-        assertEquals("Magnésio", ca.getNomeCorrecaoAdicional1(5));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(5));
+        assertEquals("Magnésio", ca.getNomeFosforoCorrecaoAdicional1(5));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(5));
         assertEquals(1.29, ca.calcCorrecaoFosforoCusto(8.59, 5, 15, 70, 5.53));
 
     }
@@ -76,7 +76,7 @@ public class TesteCorrecaoSolo {
         assertEquals(127.09, ca.calculaCorrecaoFosforoQtdAplicar(8.59, 6, 15, 70));
         assertEquals("Fosfato Arad", ca.getNomeFonteFosforo(6));
         assertEquals(66.1, ca.calcFosforoCorrecaoAdicional2(8.59, 6, 15, 70));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(6));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(6));
         assertEquals(0.70, ca.calcCorrecaoFosforoCusto(8.59, 6, 15, 70, 5.53));
     }
 
@@ -85,7 +85,7 @@ public class TesteCorrecaoSolo {
         assertEquals(144.62, ca.calculaCorrecaoFosforoQtdAplicar(8.59, 7, 15, 70));
         assertEquals("Fosfato Gafsa", ca.getNomeFonteFosforo(7));
         assertEquals(75.2, ca.calcFosforoCorrecaoAdicional2(8.59, 7, 15, 70));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(7));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(7));
         assertEquals(0.80, ca.calcCorrecaoFosforoCusto(8.59, 7, 15, 70, 5.53));
     }
 
@@ -94,7 +94,7 @@ public class TesteCorrecaoSolo {
         assertEquals(131.06, ca.calculaCorrecaoFosforoQtdAplicar(8.59, 8, 15, 70));
         assertEquals("Fosfato Daoui", ca.getNomeFonteFosforo(8));
         assertEquals(59.0, ca.calcFosforoCorrecaoAdicional2(8.59, 8, 15, 70));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(8));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(8));
         assertEquals(0.72, ca.calcCorrecaoFosforoCusto(8.59, 8, 15, 70, 5.53));
     }
 
@@ -103,7 +103,7 @@ public class TesteCorrecaoSolo {
         assertEquals(174.75, ca.calculaCorrecaoFosforoQtdAplicar(8.59, 9, 15, 70));
         assertEquals("Fosfato Patos de Minas", ca.getNomeFonteFosforo(9));
         assertEquals(48.9, ca.calcFosforoCorrecaoAdicional2(8.59, 9, 15, 70));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(9));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(9));
         assertEquals(0.97, ca.calcCorrecaoFosforoCusto(8.59, 9, 15, 70, 5.53));
     }
 
@@ -112,7 +112,7 @@ public class TesteCorrecaoSolo {
         assertEquals(226.70, ca.calculaCorrecaoFosforoQtdAplicar(8.59, 10, 15, 70));
         assertEquals("Escória de Thomas", ca.getNomeFonteFosforo(10));
         assertEquals(99.7, ca.calcFosforoCorrecaoAdicional2(8.59, 10, 15, 70));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(10));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(10));
         assertEquals(1.25, ca.calcCorrecaoFosforoCusto(8.59, 10, 15, 70, 5.53));
     }
 
@@ -129,24 +129,42 @@ public class TesteCorrecaoSolo {
         assertEquals("Multifosfato Magnesiano", ca.getNomeFonteFosforo(12));
         assertEquals(25.6, ca.calcFosforoCorrecaoAdicional1(8.59, 12, 15, 70));
         assertEquals(41.9, ca.calcFosforoCorrecaoAdicional2(8.59, 12, 15, 70));
-        assertEquals("Enxofre", ca.getNomeCorrecaoAdicional1(12));
-        assertEquals("Cálcio", ca.getNomeCorrecaoAdicional2(12));
+        assertEquals("Enxofre", ca.getNomeFosforoCorrecaoAdicional1(12));
+        assertEquals("Cálcio", ca.getNomeFosforoCorrecaoAdicional2(12));
         assertEquals(1.29, ca.calcCorrecaoFosforoCusto(8.59, 12, 15, 70, 5.53));
     }
 
     @Test
     public void testaCorrecaoPotassioCloreto() {
         assertEquals(450.55, ca.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 1, 3));
+        assertEquals("Cloreto de Potássio", ca.getNomeFontePotassio(1));
+        assertEquals(1.2, ca.calcParticipacaoAtualCTCSoloPotassio(0.15, 5.76, 1.63, 5.35));
+        assertEquals(3, ca.calcParticipacaoCTCSoloPotassioAposCorrecao(3));
+        assertEquals(67.58, ca.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 1, 3, 150));
     }
 
     @Test
     public void testaCorrecaoPotassioSulfatoDePotassio() {
         assertEquals(502.53, ca.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 2, 3));
+        assertEquals("Sulfato de Potássio", ca.getNomeFontePotassio(2));
+        assertEquals(1.2, ca.calcParticipacaoAtualCTCSoloPotassio(0.15, 5.76, 1.63, 5.35));
+        assertEquals(3, ca.calcParticipacaoCTCSoloPotassioAposCorrecao(3));
+        assertEquals(75.38, ca.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 2, 3, 150));
+        assertEquals(85.43, ca.calcCorrecaoPotassioAdicional1(0.15, 5.76, 1.63, 5.35, 2, 3));
+        assertEquals("Enxofre", ca.getNomePotassioCorrecaoAdicional1(2));
     }
 
     @Test
     public void testaCorrecaoPotassioSulfatodePotassioEMagnesio() {
         assertEquals(1187.8, ca.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 3, 3));
+        assertEquals("Sulfato de Potássio e Magnésio", ca.getNomeFontePotassio(3));
+        assertEquals(1.2, ca.calcParticipacaoAtualCTCSoloPotassio(0.15, 5.76, 1.63, 5.35));
+        assertEquals(3, ca.calcParticipacaoCTCSoloPotassioAposCorrecao(3));
+        assertEquals(178.17, ca.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 3, 3, 150));
+        assertEquals(261.32, ca.calcCorrecaoPotassioAdicional1(0.15, 5.76, 1.63, 5.35, 3, 3));
+        assertEquals("Enxofre", ca.getNomePotassioCorrecaoAdicional1(3));
+        assertEquals(213.8, ca.calcCorrecaoPotassioAdicional2(0.15, 5.76, 1.63, 5.35, 3, 3));
+        assertEquals("Magnésio", ca.getNomePotassioCorrecaoAdicional2(3));
     }
 
 }

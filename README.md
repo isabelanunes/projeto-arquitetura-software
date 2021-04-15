@@ -19,3 +19,11 @@ Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
 Java                             1             40              0            242
 -------------------------------------------------------------------------------</pre>
+
+## 2. Estruturas de decisão
+### Antes
+
+Foi contabilizado o uso de 63 estruturas de decisões incluíndo if-elses e switch. 
+
+## 3. Pontos de alteração
+### Antes

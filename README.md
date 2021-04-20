@@ -27,3 +27,5 @@ Foi contabilizado o uso de 63 estruturas de decisões incluíndo if-elses e swit
 
 ## 3. Pontos de alteração
 ### Antes
+
+Foi contabilizado o uso de 21 pontos de alteração no código 

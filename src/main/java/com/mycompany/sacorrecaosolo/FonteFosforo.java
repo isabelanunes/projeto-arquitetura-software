@@ -1,0 +1,17 @@
+
+package com.mycompany.sacorrecaosolo;
+
+public enum FonteFosforo {
+    SUPERFOSFATO_SIMPLES,
+    SUPERFOSFATO_TRIPLO,
+    MAP,
+    DAP,
+    TERMOFOSFATO_YOORIN,
+    FOSFATO_ARAD,
+    FOSFATO_GAFSA,
+    FOSFATO_DAOUI,
+    FOSFATO_PATOS_DE_MINAS,
+    ESCORIA_DE_THOMAS,
+    ACIDO_FOSFORICO,
+    MULTIFOSFATO_MAGNESIANO
+}

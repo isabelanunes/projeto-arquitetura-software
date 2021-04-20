@@ -64,36 +64,6 @@ public class CorrecaoSolo {
 
     }
 
-    public String getNomeFonteFosforo(int fonte) {
-        switch (fonte) {
-            case 1:
-                return "Superfosfato Simples";
-            case 2:
-                return "Superfosfato Triplo";
-            case 3:
-                return "MAP";
-            case 4:
-                return "DAP";
-            case 5:
-                return "Termofosfato Yoorin";
-            case 6:
-                return "Fosfato Arad";
-            case 7:
-                return "Fosfato Gafsa";
-            case 8:
-                return "Fosfato Daoui";
-            case 9:
-                return "Fosfato Patos de Minas";
-            case 10:
-                return "Escória de Thomas";
-            case 11:
-                return "Ácido Fosfórico";
-            case 12:
-                return "Multifosfato Magnesiano";
-        }
-        return null;
-    }
-
     public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
         if (teor > qtdSoloFosforo) {
             double adicional1Aux = calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia);
@@ -142,36 +112,6 @@ public class CorrecaoSolo {
         return 0;
     }
 
-    public String getNomeFosforoCorrecaoAdicional1(int fonte) {
-        switch (fonte) {
-            case 1:
-            case 12:
-                return "Enxofre";
-            case 5:
-                return "Magnésio";
-        }
-        return null;
-    }
-
-    public String getNomeFosforoCorrecaoAdicional2(int fonte) {
-        switch (fonte) {
-            case 1:
-            case 2:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 12:
-                return "Cálcio";
-            case 3:
-            case 4:
-                return "Nitrogênio";
-        }
-        return null;
-    }
-
     public double calcCorrecaoFosforoCusto(double qtdSoloFosforo, int fonte, double teor, double eficiencia, double valorTon) {
         if (teor > qtdSoloFosforo) {
             if (fonte >= 1 && fonte <= 12) {
@@ -199,18 +139,6 @@ public class CorrecaoSolo {
 
     }
 
-    public String getNomeFontePotassio(int fonte) {
-        switch (fonte) {
-            case 1:
-                return "Cloreto de Potássio";
-            case 2:
-                return "Sulfato de Potássio";
-            case 3:
-                return "Sulfato de Potássio e Magnésio";
-        }
-        return null;
-    }
-
     public double calcCorrecaoPotassioAdicional1(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
         double qtdAplicarSolo = calculaCorrecaoPotassioQtdAplicar(qtdSoloPotassio, qtdSoloCalcio, qtdSoloMagnesio, qtdSoloHmaisL, fonte, ctcDesejada);
 
@@ -236,20 +164,6 @@ public class CorrecaoSolo {
         }
 
         return 0;
-    }
-
-    public String getNomePotassioCorrecaoAdicional1(int fonte) {
-        if (fonte > 1 && fonte <= 3) {
-            return "Enxofre";
-        }
-        return null;
-    }
-
-    public String getNomePotassioCorrecaoAdicional2(int fonte) {
-        if (fonte == 3) {
-            return "Magnésio";
-        }
-        return null;
     }
 
     public double calcCorrecaoPotassioCusto(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada, double valorTon) {

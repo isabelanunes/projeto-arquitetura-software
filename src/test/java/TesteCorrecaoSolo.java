@@ -135,34 +135,34 @@ public class TesteCorrecaoSolo {
 
     @Test
     public void testaCorrecaoPotassioCloreto() {
-        assertEquals(450.55, ca.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 1, 3));
+        assertEquals(450.55, FontePotassio.CLORETO_DE_POTASSIO.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 1, 3));
         assertEquals("CLORETO_DE_POTASSIO", FontePotassio.CLORETO_DE_POTASSIO.name());
         assertEquals(1.2, ca.calcParticipacaoAtualCTCSoloPotassio(0.15, 5.76, 1.63, 5.35));
         assertEquals(3, ca.calcParticipacaoCTCSoloPotassioAposCorrecao(3));
-        assertEquals(67.58, ca.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 1, 3, 150));
+        assertEquals(67.58, FontePotassio.CLORETO_DE_POTASSIO.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 1, 3, 150));
     }
 
     @Test
     public void testaCorrecaoPotassioSulfatoDePotassio() {
-        assertEquals(502.53, ca.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 2, 3));
+        assertEquals(502.53, FontePotassio.SULFATO_DE_POTASSIO.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 2, 3));
         assertEquals("SULFATO_DE_POTASSIO", FontePotassio.SULFATO_DE_POTASSIO.name());
         assertEquals(1.2, ca.calcParticipacaoAtualCTCSoloPotassio(0.15, 5.76, 1.63, 5.35));
         assertEquals(3, ca.calcParticipacaoCTCSoloPotassioAposCorrecao(3));
-        assertEquals(75.38, ca.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 2, 3, 150));
-        assertEquals(85.43, ca.calcCorrecaoPotassioAdicional1(0.15, 5.76, 1.63, 5.35, 2, 3));
+        assertEquals(75.38, FontePotassio.SULFATO_DE_POTASSIO.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 2, 3, 150));
+        assertEquals(85.43, FontePotassio.SULFATO_DE_POTASSIO.calcCorrecaoPotassioAdicional1(0.15, 5.76, 1.63, 5.35, 2, 3));
         assertEquals("ENXOFRE", NutrientesAdicionais.ENXOFRE.name());
     }
 
     @Test
     public void testaCorrecaoPotassioSulfatodePotassioEMagnesio() {
-        assertEquals(1187.8, ca.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 3, 3));
+        assertEquals(1187.8, FontePotassio.SULFATO_DE_POTASSIO_E_MAGNESIO.calculaCorrecaoPotassioQtdAplicar(0.15, 5.76, 1.63, 5.35, 3, 3));
         assertEquals("SULFATO_DE_POTASSIO_E_MAGNESIO", FontePotassio.SULFATO_DE_POTASSIO_E_MAGNESIO.name());
         assertEquals(1.2, ca.calcParticipacaoAtualCTCSoloPotassio(0.15, 5.76, 1.63, 5.35));
         assertEquals(3, ca.calcParticipacaoCTCSoloPotassioAposCorrecao(3));
-        assertEquals(178.17, ca.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 3, 3, 150));
-        assertEquals(261.32, ca.calcCorrecaoPotassioAdicional1(0.15, 5.76, 1.63, 5.35, 3, 3));
+        assertEquals(178.17, FontePotassio.SULFATO_DE_POTASSIO_E_MAGNESIO.calcCorrecaoPotassioCusto(0.15, 5.76, 1.63, 5.35, 3, 3, 150));
+        assertEquals(261.32, FontePotassio.SULFATO_DE_POTASSIO_E_MAGNESIO.calcCorrecaoPotassioAdicional1(0.15, 5.76, 1.63, 5.35, 3, 3));
         assertEquals("ENXOFRE", NutrientesAdicionais.ENXOFRE.name());
-        assertEquals(213.8, ca.calcCorrecaoPotassioAdicional2(0.15, 5.76, 1.63, 5.35, 3, 3));
+        assertEquals(213.8, FontePotassio.SULFATO_DE_POTASSIO_E_MAGNESIO.calcCorrecaoPotassioAdicional2(0.15, 5.76, 1.63, 5.35, 3, 3));
         assertEquals("MAGNESIO", NutrientesAdicionais.MAGNESIO.name());
     }
 

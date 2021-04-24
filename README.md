@@ -3,6 +3,11 @@ Repositório utilizado para armazenar os artefatos da arquitetura de um aplicati
 
 # Relatório de pontos de manutenibilidade (Atividade 3)
 
+## Problemas encontrados
+O código apresentava uma grande quantidade de estruturas condicionais (63), pois utilizava por exemplo, um case de um switch-case para retornar a correção de
+cada fonte de fósforo ou potássio. Também realizava várias verificações para não permitir o retorno de valores negativos, como quantidade a aplicar no solo ou custo. Outro problema encontrado foi a quantidade de pontos de alteração (21) no código, pois a alteração de uma fonte de fósforo ou potássio necessitava alterar todos os métodos em que ela está presente.
+
+
 ## 1. Linhas de código
 ### Antes
 

@@ -1,4 +1,4 @@
-package com.mycompany.sacorrecaosolo;
+package SA;
 
 public enum FontePotassio implements CalculosCorrecaoPotassio {
     CLORETO_DE_POTASSIO {

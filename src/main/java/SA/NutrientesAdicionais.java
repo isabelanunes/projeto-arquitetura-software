@@ -1,4 +1,4 @@
-package com.mycompany.sacorrecaosolo;
+package SA;
 
 public enum NutrientesAdicionais {
     CALCIO,

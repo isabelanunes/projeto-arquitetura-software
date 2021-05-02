@@ -1,10 +1,10 @@
 
-import com.mycompany.sacorrecaosolo.CorrecaoSolo;
-import com.mycompany.sacorrecaosolo.FonteFosforo;
-import com.mycompany.sacorrecaosolo.FontePotassio;
-import com.mycompany.sacorrecaosolo.NutrientesAdicionais;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import SA.CorrecaoSolo;
+import SA.FonteFosforo;
+import SA.FontePotassio;
+import SA.NutrientesAdicionais;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class TesteCorrecaoSolo {
 
@@ -12,23 +12,22 @@ public class TesteCorrecaoSolo {
 
     @Test
     public void testaValoresIdeaisArgiloso() {
-        assertArrayEquals(new double[]{9, 0.35, 6, 1.5, 9, 0}, ca.calcIdeal(1));
+        Assert.assertArrayEquals(new double[]{9, 0.35, 6, 1.5, 9, 0}, ca.calcIdeal(1));
     }
-
     @Test
     public void testaValoresIdeaisTextMedia() {
-        assertArrayEquals(new double[]{12, 0.25, 4, 1, 6, 0}, ca.calcIdeal(2));
+        Assert.assertArrayEquals(new double[]{12, 0.25, 4, 1, 6, 0}, ca.calcIdeal(2));
     }
 
     @Test
     public void testaCorrecaoFosforoSuperfosfatoSimples() {
-        assertEquals(233, FonteFosforo.SUPERFOSFATO_SIMPLES.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 15, 70));
-        assertEquals("SUPERFOSFATO_SIMPLES", FonteFosforo.SUPERFOSFATO_SIMPLES.name());
-        assertEquals(23.3, FonteFosforo.SUPERFOSFATO_SIMPLES.calcFosforoCorrecaoAdicional1(8.59, 1, 15, 70));
-        assertEquals(65.2, FonteFosforo.SUPERFOSFATO_SIMPLES.calcFosforoCorrecaoAdicional2(8.59, 1, 15, 70));
-        assertEquals("ENXOFRE", NutrientesAdicionais.ENXOFRE.name());
-        assertEquals("CALCIO", NutrientesAdicionais.CALCIO.name());
-        assertEquals(1.29, FonteFosforo.SUPERFOSFATO_SIMPLES.calcCorrecaoFosforoCusto(8.59, 1, 15, 70, 5.53));
+        Assert.assertEquals(233, FonteFosforo.SUPERFOSFATO_SIMPLES.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 15, 70));
+        Assert.assertEquals("SUPERFOSFATO_SIMPLES", FonteFosforo.SUPERFOSFATO_SIMPLES.name());
+        Assert.assertEquals(23.3, FonteFosforo.SUPERFOSFATO_SIMPLES.calcFosforoCorrecaoAdicional1(8.59, 1, 15, 70));
+        Assert.assertEquals(65.2, FonteFosforo.SUPERFOSFATO_SIMPLES.calcFosforoCorrecaoAdicional2(8.59, 1, 15, 70));
+        Assert.assertEquals("ENXOFRE", NutrientesAdicionais.ENXOFRE.name());
+        Assert.assertEquals("CALCIO", NutrientesAdicionais.CALCIO.name());
+        Assert.assertEquals(1.29, FonteFosforo.SUPERFOSFATO_SIMPLES.calcCorrecaoFosforoCusto(8.59, 1, 15, 70, 5.53));
     }
 
     @Test

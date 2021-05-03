@@ -24,8 +24,73 @@ public class TestesQuadros {
         Assert.assertEquals(58.49, correcaoSolo.getVPercentual(0.15, 5.76, 1.63, 5.35), 0.1);
         Assert.assertEquals(3.07, correcaoSolo.getMOPercentual(30.7), 0.1);
         Assert.assertEquals(17.84, correcaoSolo.getCarbono(3.07), 0.1);
-
-        
     }
+    
+    @Test
+    public void testeCorrecaoFosforo(){
+        /* classe NutrientesAdicionais não possuia relação com as outras classes
+        necessário retornar o nome do elemento da correcaoAdicional.
+        Exisem dois métodos que fazem o calculoCorrecaoAdicional. */
+        
+        Assert.assertEquals(123.95, FonteFosforo.SUPERFOSFATO_SIMPLES.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{12.4, NutrientesAdicionais.ENXOFRE}, FonteFosforo.SUPERFOSFATO_SIMPLES.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{34.7, NutrientesAdicionais.CALCIO}, FonteFosforo.SUPERFOSFATO_SIMPLES.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(156.18, FonteFosforo.SUPERFOSFATO_SIMPLES.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+
+        Assert.assertEquals(54.4, FonteFosforo.SUPERFOSFATO_TRIPLO.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.SUPERFOSFATO_TRIPLO.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{10.9, NutrientesAdicionais.CALCIO}, FonteFosforo.SUPERFOSFATO_TRIPLO.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(68.5, FonteFosforo.SUPERFOSFATO_TRIPLO.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+    
+        Assert.assertEquals(46.4, FonteFosforo.MAP.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.MAP.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{4.2, NutrientesAdicionais.NITROGENIO}, FonteFosforo.MAP.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(58.5, FonteFosforo.MAP.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+        
+        Assert.assertEquals(49.5, FonteFosforo.DAP.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.DAP.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{7.9, NutrientesAdicionais.NITROGENIO}, FonteFosforo.DAP.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(62.4, FonteFosforo.DAP.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+    
+        Assert.assertEquals(123.9, FonteFosforo.TERMOFOSFATO_YOORIN.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{18.6, NutrientesAdicionais.MAGNESIO}, FonteFosforo.TERMOFOSFATO_YOORIN.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{34.7, NutrientesAdicionais.CALCIO}, FonteFosforo.TERMOFOSFATO_YOORIN.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(156.1, FonteFosforo.TERMOFOSFATO_YOORIN.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+    
+        Assert.assertEquals(67.6, FonteFosforo.FOSFATO_ARAD.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.FOSFATO_ARAD.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{35.2, NutrientesAdicionais.CALCIO}, FonteFosforo.FOSFATO_ARAD.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(85.1, FonteFosforo.FOSFATO_ARAD.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+          
+        Assert.assertEquals(76.9, FonteFosforo.FOSFATO_GAFSA.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.FOSFATO_GAFSA.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{40.0, NutrientesAdicionais.CALCIO}, FonteFosforo.FOSFATO_GAFSA.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(96.9, FonteFosforo.FOSFATO_GAFSA.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+        
+        Assert.assertEquals(69.7, FonteFosforo.FOSFATO_DAOUI.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.FOSFATO_DAOUI.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{31.4, NutrientesAdicionais.CALCIO}, FonteFosforo.FOSFATO_DAOUI.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(87.8, FonteFosforo.FOSFATO_DAOUI.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+        
+        Assert.assertEquals(92.9, FonteFosforo.FOSFATO_PATOS_DE_MINAS.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.FOSFATO_PATOS_DE_MINAS.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{26.0, NutrientesAdicionais.CALCIO}, FonteFosforo.FOSFATO_PATOS_DE_MINAS.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(117.1, FonteFosforo.FOSFATO_PATOS_DE_MINAS.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+    
+        Assert.assertEquals(120.6, FonteFosforo.ESCORIA_DE_THOMAS.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.ESCORIA_DE_THOMAS.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{53.1, NutrientesAdicionais.CALCIO}, FonteFosforo.ESCORIA_DE_THOMAS.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(151.94, FonteFosforo.ESCORIA_DE_THOMAS.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+    
+        Assert.assertEquals(42.9, FonteFosforo.ACIDO_FOSFORICO.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.ACIDO_FOSFORICO.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{0}, FonteFosforo.ACIDO_FOSFORICO.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(54.05, FonteFosforo.ACIDO_FOSFORICO.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+        
+        Assert.assertEquals(123.9, FonteFosforo.MULTIFOSFATO_MAGNESIANO.calculaCorrecaoFosforoQtdAplicar(8.59, 1, 12, 70), 0.1);
+        Assert.assertArrayEquals(new Object[]{13.6,NutrientesAdicionais.ENXOFRE}, FonteFosforo.MULTIFOSFATO_MAGNESIANO.calcFosforoCorrecaoAdicional1(8.59, 1, 12, 70));
+        Assert.assertArrayEquals(new Object[]{22.3,NutrientesAdicionais.CALCIO}, FonteFosforo.MULTIFOSFATO_MAGNESIANO.calcFosforoCorrecaoAdicional2(8.59, 1, 12, 70));
+        Assert.assertEquals(156.1, FonteFosforo.MULTIFOSFATO_MAGNESIANO.calcCorrecaoFosforoCusto(8.59, 1, 12, 70, 1260),0.1);
+    }   
 
 }

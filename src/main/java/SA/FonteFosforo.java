@@ -9,15 +9,15 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional1 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.1 * 10) / 10;
-            return Math.max(0, adicional1);
+            return new Object[] {Math.max(0, adicional1), NutrientesAdicionais.ENXOFRE};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.28 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
         }
 
         @Override
@@ -35,15 +35,16 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.2 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
+
         }
 
         @Override
@@ -60,15 +61,16 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.09 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.NITROGENIO};
+
         }
 
         @Override
@@ -86,15 +88,16 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.16 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.NITROGENIO};
+
         }
 
         @Override
@@ -111,15 +114,17 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional1 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.15 * 10) / 10;
-            return Math.max(0, adicional1);
+            return new Object[] {Math.max(0, adicional1), NutrientesAdicionais.MAGNESIO};
+
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.28 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
+
         }
 
         @Override
@@ -136,15 +141,16 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.52 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
+
         }
 
         @Override
@@ -161,15 +167,16 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.52 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
+
         }
 
         @Override
@@ -186,15 +193,15 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.45 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
         }
 
         @Override
@@ -211,15 +218,15 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.28 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
         }
 
         @Override
@@ -236,15 +243,15 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.44 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
         }
 
         @Override
@@ -262,15 +269,15 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+            return new Object[]{0};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
 
-            return 0;
+           return new Object[]{0};
         }
 
         @Override
@@ -287,15 +294,15 @@ public enum FonteFosforo implements CalculosCorrecaoFosforo {
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional1(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional1 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.11 * 10) / 10;
-            return Math.max(0, adicional1);
+            return new Object[] {Math.max(0, adicional1), NutrientesAdicionais.ENXOFRE};
         }
 
         @Override
-        public double calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
+        public Object[] calcFosforoCorrecaoAdicional2(double qtdSoloFosforo, int fonte, double teor, double eficiencia) {
             double adicional2 = (double) Math.round(calculaCorrecaoFosforoQtdAplicar(qtdSoloFosforo, fonte, teor, eficiencia) * 0.18 * 10) / 10;
-            return Math.max(0, adicional2);
+            return new Object[] {Math.max(0, adicional2), NutrientesAdicionais.CALCIO};
         }
 
         @Override

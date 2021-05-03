@@ -9,13 +9,13 @@ public enum FontePotassio implements CalculosCorrecaoPotassio {
         }
 
         @Override
-        public double calcCorrecaoPotassioAdicional1(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
-            return 0;
+        public Object[] calcCorrecaoPotassioAdicional1(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
+            return new Object[]{0};
         }
 
         @Override
-        public double calcCorrecaoPotassioAdicional2(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
-            return 0;
+        public Object[] calcCorrecaoPotassioAdicional2(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
+            return new Object[]{0};
         }
 
         @Override
@@ -34,14 +34,14 @@ public enum FontePotassio implements CalculosCorrecaoPotassio {
         }
 
         @Override
-        public double calcCorrecaoPotassioAdicional1(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
+        public Object[] calcCorrecaoPotassioAdicional1(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
             double qtdAplicarSolo = (double) Math.round(calculaCorrecaoPotassioQtdAplicar(qtdSoloPotassio, qtdSoloCalcio, qtdSoloMagnesio, qtdSoloHmaisL, fonte, ctcDesejada) * 0.17 * 100) / 100;
-            return Math.max(0, qtdAplicarSolo);
+            return new Object[]{Math.max(0, qtdAplicarSolo), NutrientesAdicionais.ENXOFRE};
         }
 
         @Override
-        public double calcCorrecaoPotassioAdicional2(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
-            return 0;
+        public Object[] calcCorrecaoPotassioAdicional2(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
+            return new Object[]{0};
         }
 
         @Override
@@ -58,15 +58,15 @@ public enum FontePotassio implements CalculosCorrecaoPotassio {
         }
 
         @Override
-        public double calcCorrecaoPotassioAdicional1(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
+        public Object[] calcCorrecaoPotassioAdicional1(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
             double qtdAplicarSolo = (double) Math.round(calculaCorrecaoPotassioQtdAplicar(qtdSoloPotassio, qtdSoloCalcio, qtdSoloMagnesio, qtdSoloHmaisL, fonte, ctcDesejada) * 0.22 * 100) / 100;
-            return Math.max(0, qtdAplicarSolo);
+            return new Object[]{Math.max(0, qtdAplicarSolo), NutrientesAdicionais.ENXOFRE};
         }
 
         @Override
-        public double calcCorrecaoPotassioAdicional2(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
+        public Object[] calcCorrecaoPotassioAdicional2(double qtdSoloPotassio, double qtdSoloCalcio, double qtdSoloMagnesio, double qtdSoloHmaisL, int fonte, double ctcDesejada) {
             double qtdAplicarSolo = (double) Math.round(calculaCorrecaoPotassioQtdAplicar(qtdSoloPotassio, qtdSoloCalcio, qtdSoloMagnesio, qtdSoloHmaisL, fonte, ctcDesejada) * 0.18 * 100) / 100;
-            return Math.max(0, qtdAplicarSolo);
+            return new Object[]{Math.max(0, qtdAplicarSolo), NutrientesAdicionais.MAGNESIO};
         }
 
         @Override

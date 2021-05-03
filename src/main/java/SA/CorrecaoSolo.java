@@ -75,4 +75,8 @@ public class CorrecaoSolo {
         }
     }
     
+    public double participacaoPotassioPercentualIdeal(){
+        return 3.0;
+    }
+    
 }

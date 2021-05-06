@@ -62,3 +62,36 @@ Foram contabilizados 21 pontos de alteração no código.
 
 Após as mudanças o número de pontos de alteração no projeto é 4.
 
+# Relatório - Atividade #4
+O objetivo desta atividade foi criar três testes que simulam os quadros de teores do solo, correção/recuperação de fósforo, e correção/recuperação de potássio.
+Serão elencados abaixo os resultados obtidos bem como as dificuldades encontradas para cada quadro.
+
+<ul>
+       <li><b>Teores do Solo</b> - <a href="https://github.com/isabelanunes/projeto-arquitetura-software/commit/92ed2835df1db851d7319570260727f6f218acaf">commit</a></li>
+       <p> <b>Dificuldades/problemas encontrados: </b> <br> 
+              a) A textura do solo não é um valor categórico e sim um valor inteiro, onde 1 corresponde à Solo Argiloso e 2 à Textura Média. <br>
+              Essa decisão de implementação pode tornar o entendimento da aplicação dificultoso para quem não conhece o problema que está sendo tratado, pois é necessário    realizar uma investigação na classe <i>CorrecaoSolo</i> e no método <i>calcIdeal()</i> para realizar uma inferência em relação ao problema abordado. <br> 
+              b) Faltou o retorno do valor ideal para o nutriente H+Al. O problema foi resolvido acrescentando um elemento ao atributo nutrienteIdeal da classe <i>CorrecaoSolo</i> e retornando o valor ideal no método <i>calcIdeal()</i>. <br>
+              c) Faltou a implementação dos métodos de correção da CTC, tais quais: S cmol, CTC cmol, V percentual, Teor Ideal de MO percentual e o cálculo do Carbono. <br>
+              Os métodos acima citados foram implementados na classe <i>CorrecaoSolo</i>. <br>
+              <b>Observação:</b> o método que realiza o cálculo dos valores ideais dos nutrientes retornou os valores esperados. <br>
+       </p>
+       <li><b>Correção/recuperação de Fósforo</b> - <a href="https://github.com/isabelanunes/projeto-arquitetura-software/commit/bc32c791ae81ff3d9b9b15e7d2f33c079a0a0566">commit</a></li>
+       <p> <b>Dificuldades/problemas encontrados: </b> <br> 
+              a) A classe NutrientesAdicionais não possui relação com as outras classes da aplicação, entretanto era utilizada de forma isolada nos métodos de testes. <br> Analisando a implementação, inferi que a utilização teria como objetivo, cobrir o teste do método de nutrientes adicionais fornecidos com a correção, sendo implementada da seguinte forma "<i>assertEquals("CALCIO", NutrientesAdicionais.CALCIO.name());</i>". Este teste não cobre de fato um método da aplicação. </br>
+              b) Os métodos <i>calcFosforoCorrecaoAdicional1()</i> e <i>calcFosforoCorrecaoAdicional2()</i> da classe <i>FonteFosforo</i> não retornam o nome do nutriente adicional, somente os valores. <br>
+              Sendo assim, foi necessário alterar o retorno do método (double para Object[]) para que fosse possível retornar também o nome do elemento, além do valor. <br>
+              c) A alteração necessária no ponto b) foi dificultosa pois a mudança teve que ser implementada em todos os valores do enum da classe <i>FonteFosforo</i>, visto que cada valor implementa este método. Além disso, como existem dois métodos que realizam a mesma coisa, a mudança teve que ser replicada para ambos. <br>
+              <b>Observação: </b>os métodos <i>calculaCorrecaoFosforoQtdAplicar()</i> e <i>calcCorrecaoFosforoCusto()</i> retornaram os valores esperados. O valor calculado para o elemento adicional também estava correto. Além disso, houve um tratamento de arredondamento para os retornos do tipo double, o que facilitou a implementação dos testes. 
+       </p>
+        <li><b>Correção/recuperação de Potássio</b> - <a href="https://github.com/isabelanunes/projeto-arquitetura-software/commit/6b30b8edcdc93b2096cb00276e623cbc9c4f3d45">commit</a></li>
+       <p> <b>Dificuldades/problemas encontrados: </b> <br>
+              a) As dificuldades e problemas elencados para a Correção/recuperação de Fósforo se estendem para esta análise. <br>
+              b) Os métodos do quadro de correção do potássio não estão inteiramente concentrados na classe <i>Fonte Potássio</i>. <br>
+       Os métodos <i>calcParticipacaoAtualCTCSoloPotassio()</i> e <i>calcParticipacaoCTCSoloPotassioAposCorrecao()</i> pertencem a classe <i>CorrecaoSolo</i>. <br>
+              c) Faltou o método que retorna o percentual ideal do potássio. <br>
+       O método faltante foi implementando na classe <i>CorrecaoSolo</i>, seguindo a estrutura da aplicação. <br>
+              <b>Observação: </b>os métodos <i>calculaCorrecaoFosforoQtdAplicar()</i> e <i>calcCorrecaoFosforoCusto()</i> retornaram os valores esperados. O valor calculado para o elemento adicional também estava correto. Além disso, houve um tratamento de arredondamento para os retornos do tipo double, o que facilitou a implementação dos testes. 
+       </p>
+       
+</ul>

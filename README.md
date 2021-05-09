@@ -91,7 +91,7 @@ Serão elencados abaixo os resultados obtidos bem como as dificuldades encontrad
        Os métodos <i>calcParticipacaoAtualCTCSoloPotassio()</i> e <i>calcParticipacaoCTCSoloPotassioAposCorrecao()</i> pertencem a classe <i>CorrecaoSolo</i>. <br>
               c) Faltou o método que retorna o percentual ideal do potássio. <br>
        O método faltante foi implementando na classe <i>CorrecaoSolo</i>, seguindo a estrutura da aplicação. <br>
-              <b>Observação: </b>os métodos <i>calculaCorrecaoFosforoQtdAplicar()</i> e <i>calcCorrecaoFosforoCusto()</i> retornaram os valores esperados. O valor calculado para o elemento adicional também estava correto. Além disso, houve um tratamento de arredondamento para os retornos do tipo double, o que facilitou a implementação dos testes. 
+              <b>Observação: </b>os métodos <i>calculaCorrecaoPotassioQtdAplicar()</i> e <i>calcCorrecaoPotassioCusto()</i> retornaram os valores esperados. O valor calculado para o elemento adicional também estava correto. Além disso, houve um tratamento de arredondamento para os retornos do tipo double, o que facilitou a implementação dos testes. 
        </p>
        
 </ul>
